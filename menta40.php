@@ -120,17 +120,23 @@ function validateBasic($hand) {
 }
 
 function validateHand($hand) {
-    validateBasic($hand);
+    if(validateBasic($hand) === false) {
+        return false;
+    }
     if ($hand < 1 || $hand > 3) {
         echo '1~3の値で入力してください。'. PHP_EOL;
         return false;
     }
+    return true;
 }
 
 function validateAnswer($answer) {
-    validateBasic($answer);
+    if(validateBasic($hand) === false) {
+        return false;
+    }
     if ($answer < 1 || $answer > 2) {
         echo '1~2の値で入力してください。'. PHP_EOL;
         return false;
-  }
+    }
+    return true;
 }
